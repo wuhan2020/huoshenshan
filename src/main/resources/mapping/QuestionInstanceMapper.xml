@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuhan2020.email_admin.dao.QuestionInstanceMapper">
+  <resultMap id="BaseResultMap" type="com.wuhan2020.email_admin.entity.QuestionInstance">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="question_id" jdbcType="INTEGER" property="questionId" />
+    <result column="question_content" jdbcType="VARCHAR" property="questionContent" />
+    <result column="question_select_content" jdbcType="VARCHAR" property="questionSelectContent" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+  </resultMap>
+  <insert id="insert" parameterType="com.wuhan2020.email_admin.entity.QuestionInstance">
+    insert into question_instance (id, question_id, question_content, 
+      question_select_content, status, create_time, 
+      update_time, deleted)
+    values (#{id,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER}, #{questionContent,jdbcType=VARCHAR}, 
+      #{questionSelectContent,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wuhan2020.email_admin.entity.QuestionInstance">
+    insert into question_instance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="questionId != null">
+        question_id,
+      </if>
+      <if test="questionContent != null">
+        question_content,
+      </if>
+      <if test="questionSelectContent != null">
+        question_select_content,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="questionId != null">
+        #{questionId,jdbcType=INTEGER},
+      </if>
+      <if test="questionContent != null">
+        #{questionContent,jdbcType=VARCHAR},
+      </if>
+      <if test="questionSelectContent != null">
+        #{questionSelectContent,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+
+</mapper>

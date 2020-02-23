@@ -1,0 +1,15 @@
+server:
+  port: 8011
+  servlet:
+     context-path: /wuhan2020
+spring:
+  profiles:
+    active: test
+  application:
+    name: wuhan2020-question-web
+  #jdbc基本配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  mapper-locations: classpath*:/mapping/*Mapper.xml

@@ -1,0 +1,8 @@
+#全链路监控配置
+spring:
+  datasource:
+    druid:
+      ds0:
+        url:
+        password:
+        name:
