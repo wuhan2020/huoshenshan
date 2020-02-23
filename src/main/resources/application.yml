@@ -6,7 +6,7 @@ spring:
   profiles:
     active: test
   application:
-    name: wuhan2020-question-web
+    name: wuhan2020-web
   #jdbc基本配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
