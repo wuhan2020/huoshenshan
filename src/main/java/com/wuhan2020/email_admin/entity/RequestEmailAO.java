@@ -13,4 +13,10 @@ public class RequestEmailAO {
 
     private String emailSendString;
 
+    private String uid;
+
+    private String userName;
+
+    private String sendType;
+
 }

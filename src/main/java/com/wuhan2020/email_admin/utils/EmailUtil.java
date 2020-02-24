@@ -41,7 +41,7 @@ public class EmailUtil {
         System.out.println(isEmail(msg));
     }
 
-    public static void sendEmail(String myEmailSMTPHost, String myEmailAccount, String myEmailPassword, String text,String receiveEmail) throws Exception {
+    public static void sendEmail(String myEmailSMTPHost, String myEmailAccount, String myEmailPassword, String sendTitle, String text, String sendType, String photosrc, String receiveEmail) throws Exception {
         Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.smtp.host", myEmailSMTPHost);
@@ -54,7 +54,14 @@ public class EmailUtil {
         Session session = Session.getDefaultInstance(props);
         // 设置为debug模式, 可以查看详细的发送 log
         session.setDebug(true);
-        MimeMessage message = createMimeMessage(session, myEmailAccount, receiveEmail,text);
+        MimeMessage message = null;
+
+        if("img".equals(sendType)){
+             message = createImageMail(session, myEmailAccount, receiveEmail, sendTitle, text, photosrc);
+        }
+        if("text".equals(sendType)){
+            message = createMimeMessage(session, myEmailAccount, receiveEmail,text);
+        }
         Transport transport = session.getTransport();
         transport.connect(myEmailAccount, myEmailPassword);
         transport.sendMessage(message, message.getAllRecipients());
