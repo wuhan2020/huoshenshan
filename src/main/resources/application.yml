@@ -1,12 +1,12 @@
 server:
   port: 8011
   servlet:
-     context-path: /wuhan2020
+    context-path: /
 spring:
   profiles:
     active: test
   application:
-    name: wuhan2020-web
+    name: huoshenshan
   #jdbc基本配置
   datasource:
     driver-class-name: com.mysql.jdbc.Driver

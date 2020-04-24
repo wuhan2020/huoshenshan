@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wuhan2020.email_admin.dao.QuestionInstanceMapper">
-  <resultMap id="BaseResultMap" type="com.wuhan2020.email_admin.entity.QuestionInstance">
+<mapper namespace="org.wuhan2020.huoshenshan.dao.QuestionInstanceMapper">
+  <resultMap id="BaseResultMap" type="org.wuhan2020.huoshenshan.entity.QuestionInstance">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="question_id" jdbcType="INTEGER" property="questionId" />
     <result column="question_content" jdbcType="VARCHAR" property="questionContent" />
@@ -11,15 +11,15 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
-  <insert id="insert" parameterType="com.wuhan2020.email_admin.entity.QuestionInstance">
-    insert into question_instance (id, question_id, question_content, 
-      question_select_content, status, create_time, 
+  <insert id="insert" parameterType="org.wuhan2020.huoshenshan.entity.QuestionInstance">
+    insert into question_instance (id, question_id, question_content,
+      question_select_content, status, create_time,
       update_time, deleted)
-    values (#{id,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER}, #{questionContent,jdbcType=VARCHAR}, 
-      #{questionSelectContent,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER}, #{questionContent,jdbcType=VARCHAR},
+      #{questionSelectContent,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.wuhan2020.email_admin.entity.QuestionInstance">
+  <insert id="insertSelective" parameterType="org.wuhan2020.huoshenshan.entity.QuestionInstance">
     insert into question_instance
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

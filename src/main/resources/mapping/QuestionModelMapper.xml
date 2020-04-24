@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wuhan2020.email_admin.dao.QuestionModelMapper">
-  <resultMap id="BaseResultMap" type="com.wuhan2020.email_admin.entity.QuestionModel">
+<mapper namespace="org.wuhan2020.huoshenshan.dao.QuestionModelMapper">
+  <resultMap id="BaseResultMap" type="org.wuhan2020.huoshenshan.entity.QuestionModel">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="group_id" jdbcType="INTEGER" property="groupId" />
     <result column="question_id" jdbcType="INTEGER" property="questionId" />
@@ -10,15 +10,15 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
-  <insert id="insert" parameterType="com.wuhan2020.email_admin.entity.QuestionModel">
-    insert into question_model (id, group_id, question_id, 
-      question_content, question_select_model, create_time, 
+  <insert id="insert" parameterType="org.wuhan2020.huoshenshan.entity.QuestionModel">
+    insert into question_model (id, group_id, question_id,
+      question_content, question_select_model, create_time,
       update_time)
-    values (#{id,jdbcType=INTEGER}, #{groupId,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER}, 
-      #{questionContent,jdbcType=VARCHAR}, #{questionSelectModel,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{groupId,jdbcType=INTEGER}, #{questionId,jdbcType=INTEGER},
+      #{questionContent,jdbcType=VARCHAR}, #{questionSelectModel,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.wuhan2020.email_admin.entity.QuestionModel">
+  <insert id="insertSelective" parameterType="org.wuhan2020.huoshenshan.entity.QuestionModel">
     insert into question_model
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -68,7 +68,7 @@
     </trim>
   </insert>
 
-  <select id="getQuestionModel" parameterType="com.wuhan2020.email_admin.entity.QuestionModel" resultMap="BaseResultMap">
+  <select id="getQuestionModel" parameterType="org.wuhan2020.huoshenshan.entity.QuestionModel" resultMap="BaseResultMap">
     select * from question_model
     <where>
       question_id = #{questionId,jdbcType=BIGINT}
@@ -77,7 +77,7 @@
     </where>
   </select>
 
-  <select id="getQuestionModelList" parameterType="com.wuhan2020.email_admin.entity.QuestionModel" resultMap="BaseResultMap">
+  <select id="getQuestionModelList" parameterType="org.wuhan2020.huoshenshan.entity.QuestionModel" resultMap="BaseResultMap">
     select * from question_model
     <where>
       group_id = #{groupId,jdbcType=BIGINT}
