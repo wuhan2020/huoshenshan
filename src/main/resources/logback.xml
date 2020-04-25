@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="appName" value="huoshenshan"/>
+    <property name="logRoot" value="/home/server/logs/huoshenshan"/>
+    <property name="pattern" value="%d %p [%t] %c{20} %m%n"/>
+    <property name="logHistory" value="7"/>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logRoot}/${appName}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logRoot}/${appName}.log.%d{yyyy-MM-dd-HH}</fileNamePattern>
+            <maxHistory>${logHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+    <!--控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%logger{56}.%method:%L -%msg%n</Pattern>
+        </encoder>
+    </appender>
+    <appender name="look-api" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logRoot}/look-api.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logRoot}/monitor-api.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>${logHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+    <!--sql日志-->
+    <appender name="look-sql" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logRoot}/look-sql.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logRoot}/monitor-sql.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>${logHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+    <!-- error 日志 -->
+    <appender name="ERROR-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder charset="UTF-8"/>
+        <file>${logRoot}/${appName}.error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logRoot}/${appName}.error.log.%d{yyyy-MM-dd-HH}</fileNamePattern>
+            <maxHistory>${logHistory}</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${pattern}</Pattern>
+        </layout>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </root>
+
+</configuration>

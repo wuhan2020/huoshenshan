@@ -3,7 +3,7 @@ package org.wuhan2020.huoshenshan.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import org.wuhan2020.huoshenshan.aop.RequestLog;
-import org.wuhan2020.huoshenshan.entity.RequestEmailAO;
+import org.wuhan2020.huoshenshan.domain.RequestEmailAO;
 import org.wuhan2020.huoshenshan.utils.EmailUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ import java.util.UUID;
 @CrossOrigin
 public class EmailController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(QuestionController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(EmailController.class);
 
     @ResponseBody
     @PostMapping("/check")
