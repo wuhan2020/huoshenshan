@@ -8,7 +8,7 @@
 
 ## 快速启动
 * 1、本地安装jdk、mysql server
-* 2、初始化sql `/src/main/resources/sql`
+* 2、初始化sql `/src/main/resources/sql/huoshenshan.sql`
 * 3、在IDE 启动`src/main/java/org/wuhan2020/huoshenshan/HuoshenshanApplication.java` 主类
  
 ## 功能列表 
