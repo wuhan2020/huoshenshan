@@ -1,44 +1,56 @@
-/*==============================================================*/
-/* DBMS name:      Sybase SQL Anywhere 12                       */
-/* Created on:     2020/4/30 13:51:37                           */
-/*==============================================================*/
+/*
+Navicat MySQL Data Transfer
 
+Source Server         : 
+Source Server Version : 50647
+Source Host           : 
+Source Database       : huoshenshan
 
-drop table if exists "User";
+Target Server Type    : MYSQL
+Target Server Version : 50647
+File Encoding         : 65001
 
-drop table if exists Vedio;
+Date: 2020-04-30 16:50:36
+*/
 
-/*==============================================================*/
-/* Table: "User"                                                */
-/*==============================================================*/
-create table "User" 
-(
-   id                   long binary                    not null,
-   name                 varchar                        null,
-   email                varchar                        null,
-   phoneNumber          varchar                        null,
-   sex                  int                            null,
-   birthday             date                           null,
-   profession           varchar                        null,
-   constraint PK_USER primary key clustered (id)
-);
+SET FOREIGN_KEY_CHECKS=0;
 
-/*==============================================================*/
-/* Table: Vedio                                                 */
-/*==============================================================*/
-create table Vedio 
-(
-   id                   long binary                    not null,
-   fileName             varchar                        null,
-   fileExtension        varchar                        null,
-   publisher            varchar                        null,
-   description          varchar                        null,
-   createdTime          date                           null,
-   updatedTime          date                           null,
-   hackathonId          integer                        null,
-   hackathonStage       integer                        null,
-   constraint PK_VEDIO primary key clustered (id)
-);
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phoneNumber` varchar(255) DEFAULT NULL,
+  `sex` int(11) DEFAULT NULL,
+  `birthday` datetime DEFAULT NULL,
+  `profession` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of user
+-- ----------------------------
 
+-- ----------------------------
+-- Table structure for vedio
+-- ----------------------------
+DROP TABLE IF EXISTS `vedio`;
+CREATE TABLE `vedio` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `fileName` varchar(255) DEFAULT NULL,
+  `fileExtension` varchar(255) DEFAULT NULL,
+  `publisher` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdTime` datetime DEFAULT NULL,
+  `updatedTime` datetime DEFAULT NULL,
+  `hackathonId` int(11) DEFAULT NULL,
+  `hackathonStage` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of vedio
+-- ----------------------------
